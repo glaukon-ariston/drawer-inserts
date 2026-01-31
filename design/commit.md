@@ -1,4 +1,6 @@
-chore: configure gitignore and remove .gemini from version control
+feat(model): add transparency and color coding for geometry inspection
 
-- Create .gitignore to exclude build artifacts, IDE settings, and tool logs.
-- Stop tracking .gemini directory and its contents to keep local telemetry/config out of the repository.
+- Introduced variable constants for transparency and component colors in `models/box.scad`.
+- Applied color-coding to distinct model parts (base, walls, inner cutout sections).
+- Wrapped components in `union()` to ensure correct alpha rendering in OpenSCAD.
+- Updated `GEMINI.md` with a new Visualization section documenting these changes.

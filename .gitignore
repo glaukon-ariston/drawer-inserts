@@ -1,0 +1,16 @@
+# Generated Files
+build/
+*.stl
+*.obj
+
+# Gemini CLI
+.gemini/
+
+# IDEs and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# OpenSCAD temporary files
+*.bak

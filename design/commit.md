@@ -1,6 +1,7 @@
-feat(model): add transparency and color coding for geometry inspection
+Add configurable dividers and update box width
 
-- Introduced variable constants for transparency and component colors in `models/box.scad`.
-- Applied color-coding to distinct model parts (base, walls, inner cutout sections).
-- Wrapped components in `union()` to ensure correct alpha rendering in OpenSCAD.
-- Updated `GEMINI.md` with a new Visualization section documenting these changes.
+- Introduce `divider_count` and `divider_thickness` parameters to `models/box.scad`.
+- Add `dividers` module to generate dividers along the shorter dimension.
+- Update box width from 70mm to 80mm.
+- Update `scripts/export_stl.ps1` with new output filename.
+- Update `GEMINI.md` to document the new parameters.

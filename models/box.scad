@@ -2,11 +2,13 @@
 // Optimized for support-free 3D printing and vertical stacking
 
 // --- Parameters ---
-width = 70;
+width = 80;
 depth = 105;
 height = 95;
 wall_thickness = 2;
 corner_radius = 4;
+divider_count = 2; // Number of equal dividers along the shorter side
+divider_thickness = 1;
 
 // Visual Settings
 transparency = 0.5;
@@ -106,8 +108,44 @@ module box_inner_cutout() {
     }
 }
 
+module dividers() {
+    if (divider_count > 0) {
+        inner_w = width - 2 * wall_thickness;
+        inner_d = depth - 2 * wall_thickness;
+        
+        // Determine which side is shorter to place dividers correctly
+        is_width_shorter = width <= depth;
+        
+        long_dim = is_width_shorter ? inner_d : inner_w;
+        
+        // Calculate section length (s) between dividers
+        s = (long_dim - divider_count * divider_thickness) / (divider_count + 1);
+        
+        // Height to reach the inner lip (where the stacking chamfer starts)
+        divider_height = height - wall_thickness - chamfer_size;
+        
+        for (i = [1 : divider_count]) {
+            // Position along the long dimension
+            pos = i * s + (i - 1) * divider_thickness;
+            
+            translate_x = is_width_shorter ? wall_thickness : wall_thickness + pos;
+            translate_y = is_width_shorter ? wall_thickness + pos : wall_thickness;
+            
+            div_w = is_width_shorter ? inner_w : divider_thickness;
+            div_d = is_width_shorter ? divider_thickness : inner_d;
+            
+            color(color_outer_walls, transparency)
+            translate([translate_x, translate_y, wall_thickness])
+            cube([div_w, div_d, divider_height]);
+        }
+    }
+}
+
 // --- Final Assembly ---
-difference() {
-    box_outer_shape();
-    box_inner_cutout();
+union() {
+    difference() {
+        box_outer_shape();
+        box_inner_cutout();
+    }
+    dividers();
 }

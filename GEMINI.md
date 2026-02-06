@@ -3,8 +3,10 @@
 This project contains an OpenSCAD model for a stackable, 3D-printable drawer organizer.
 
 ## Model Description
-- **Dimensions**: 70mm (W) x 105mm (D) x 95mm (H)
+- **Dimensions**: 80mm (W) x 105mm (D) x 95mm (H)
 - **Wall Thickness**: 2mm
+- **Divider Thickness**: 1mm (configurable)
+- **Divider Count**: 2 (configurable)
 - **Stacking**: Vertical stacking with a self-centering chamfered rim.
 - **Printability**: 
     - Designed with 45° chamfers on all bottom and top edges (both inner and outer) to allow printing without supports.

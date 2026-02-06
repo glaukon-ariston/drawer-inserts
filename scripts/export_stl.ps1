@@ -2,7 +2,9 @@ $ErrorActionPreference = "Stop"
 
 $inputPath = Join-Path $PSScriptRoot "..\models\box.scad"
 $outputDir = Join-Path $PSScriptRoot "..\build"
-$outputFile = "drawer_insert_70x105x95.stl"
+# $outputFile = "drawer_insert_70x105x95.stl"
+#$outputFile = "drawer_insert_70x105x95_divider_2x.stl"
+$outputFile = "2xDiv_1mm_80x105x95.stl"
 $outputPath = Join-Path $outputDir $outputFile
 
 # Ensure build directory exists

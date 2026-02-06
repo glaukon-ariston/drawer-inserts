@@ -1,2 +1,1 @@
-Make all the model parts 50% transparent.
-Make each part of a different colour.
+Add parameter `dividier_count` for making dividers that divide the box into equal parts. Dividers use the shorter side. `dividier_count` equals zero by default and means no dividers.  
